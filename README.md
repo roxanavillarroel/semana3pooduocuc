@@ -25,8 +25,6 @@ El desarrollo se basa en un caso contextualizado que aborda problemáticas reale
 ├── model/       # Clases de dominio (Persona, Empresa, Empleado, Dirección, Rut)
 └── util/        # Utilidades y validaciones (RutInvalidoException)
 
----
 
-## Link
-
-Repositorio GitHub:[https://github.com/roxanavillarroel/semana3pooduocuc] Fecha de entrega: [10/11/2025]
+Repositorio GitHub: https://github.com/roxanavillarroel/semana3pooduocuc
+Fecha de entrega: 10/11/2025
