@@ -1,6 +1,7 @@
 package org.example.app;
 
 import org.example.model.*;
+import org.example.service.EmpresaService;
 import org.example.util.RutInvalidoException;
 
 /**
@@ -20,9 +21,11 @@ public class Main {
                     "Chile");
 
             Rut rutEmpresa = new Rut("786784999-1");
-            Empresa salmontt = new Empresa("SALMONTT",
-                    rutEmpresa,
-                    dirEmpresa);
+            Empresa empresa = new Empresa("SALMONTT", rutEmpresa, dirEmpresa);
+            EmpresaService empresaService = new EmpresaService(empresa);
+
+            empresaService.cargaEmpleado("data/empleados.csv");
+            empresaService.cargarProductos("data/productos.csv");
 
             System.out.println("===========================================");
             System.out.println("   SISTEMA DE REGISTRO - EMPRESA SALMONTT  ");
@@ -30,60 +33,23 @@ public class Main {
 
             System.out.println();
             System.out.println(" - EMPRESA SALMONERA");
-            System.out.println(" Nombre: " + salmontt.getNombreEmpresa());
-            System.out.println(" Rut: " + salmontt.getRut());
-            System.out.println(" Direccion: " + salmontt.getDireccion().getCalle() + " " +
-                    salmontt.getDireccion().getNumero() + ", " +
-                    salmontt.getDireccion().getCiudad() + ", " +
-                    salmontt.getDireccion().getComuna() + ", " +
-                    salmontt.getDireccion().getRegion() + ", " +
-                    salmontt.getDireccion().getPais());
+            System.out.println(" Nombre: " + empresa.getNombreEmpresa());
+            System.out.println(" Rut: " + empresa.getRut());
+            System.out.println(" Direccion: " + empresa.getDireccion());
             System.out.println();
 
-            Direccion dirEmpleado = new Direccion("Matico",
-                    "#198",
-                    "Alerce",
-                    "Puerto Montt",
-                    "Los Lagos",
-                    "Chile");
-            Rut rutEmpleado = new Rut("20256949-8");
+           System.out.println("EMPLEADOS DESTACADOS DEL MES | NOVIEMBRE 2025: ");
+           for (Empleado emp : empresa.getEmpleados()) {
+               System.out.println("- " + emp.getNombre() + " | " + emp.getAreaTrabajador() + " | " + emp.getRut());
+           }
+           System.out.println();
 
-            Empleado empleado1 = new Empleado(
-                    "Jose Villarroel",
-                    "jmvg@salmontt.cl",
-                    "+569 67894300",
-                    dirEmpleado,
-                    rutEmpleado,
-                    "2024-06-11",
-                    "Produccion");
-
-            System.out.println(" - EMPLEADOR ");
-            System.out.println(" Nombre: " + empleado1.getNombre());
-            System.out.println(" Email: " + empleado1.getEmail());
-            System.out.println(" Teléfono: " + empleado1.getTelefono());
-            System.out.println(" RUT: " + empleado1.getRut());
-            System.out.println(" Fecha de ingreso: " + empleado1.getFechaIngreso());
-            System.out.println(" Dirección: " + empleado1.getDireccion().getCalle() + " " +
-                    empleado1.getDireccion().getNumero() + ", " +
-                    empleado1.getDireccion().getCiudad() + ", " +
-                    empleado1.getDireccion().getComuna() + ", " +
-                    empleado1.getDireccion().getRegion() + ", " +
-                    empleado1.getDireccion().getPais());
-            System.out.println(" Area de trabajo: " + empleado1.getAreaTrabajador());
-
-            System.out.println();
-
-            System.out.println(" " + empleado1.getNombre() + " trabaja en " +
-                    salmontt.getNombreEmpresa() + " ubicada en " +
-                    salmontt.getDireccion().getCiudad() + ", " +
-                    salmontt.getDireccion().getRegion() + ", " +
-                    salmontt.getDireccion().getPais());
-
+            System.out.println("PRODUCTOS DISPONIBLES: ");
+            for (Productos p : empresa.getProductos()){
+                System.out.println(" - " + p);
+            }
         }catch (RutInvalidoException e) {
             System.out.println("Error en RUT: " + e.getMessage());
-        }catch (IllegalArgumentException e) {
-            System.out.println(" Error al crear datos: " + e.getMessage());
-
         }
     }
 }
