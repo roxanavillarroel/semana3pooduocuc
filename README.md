@@ -20,7 +20,10 @@ El desarrollo se basa en un caso contextualizado que aborda problemáticas reale
 ## 🧱 Estructura del Proyecto
 
 ```plaintext
-📁 src/EmpreSalmonera/
+EmpreSalmonera/
+ ├── pom.xml
+ ├── README.md
+ └── src/
      ├── main/
      │   ├── java/
      │   │   └── org/example/
