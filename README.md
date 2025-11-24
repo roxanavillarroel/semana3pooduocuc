@@ -20,11 +20,29 @@ El desarrollo se basa en un caso contextualizado que aborda problemáticas reale
 ## 🧱 Estructura del Proyecto
 
 ```plaintext
-📁 src/
-├── app/         # Clase principal con el método main
-├── model/       # Clases de dominio (Persona, Empresa, Empleado, Dirección, Rut)
-└── util/        # Utilidades y validaciones (RutInvalidoException)
-
+📁 src/EmpreSalmonera/
+     ├── main/
+     │   ├── java/
+     │   │   └── org/example/
+     │   │       ├── app/
+     │   │       │   └── Main.java
+     │   │       ├── model/
+     │   │       │   ├── Persona.java
+     │   │       │   ├── Empleado.java
+     │   │       │   ├── Empresa.java
+     │   │       │   ├── Productos.java
+     │   │       │   └── Direccion.java
+     │   │       ├── util/
+     │   │       │   ├── LectorArchivo.java
+     │   │       │   └── RutInvalidoException.java
+     │   │       └── service/
+     │   │           └── EmpresaService.java
+     │   └── resources/
+     │       └── data/
+     │           ├── empleados.csv
+     │           └── productos.csv
+     └── test/
+         └── java/ (vacío o con tests)
 
 Repositorio GitHub: https://github.com/roxanavillarroel/semana3pooduocuc
-Fecha de entrega: 10/11/2025
+Fecha de entrega: 24/11/2025
